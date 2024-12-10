@@ -7,8 +7,8 @@ pub const RUSTVENT_OF_CODE_TITLE: [&str; 5] = [
     r#"|_| \_\\__,_|___/\__| \_/ \___|_| |_|\__|  \___/|_|    \____\___/ \__,_|\___|"#,
 ];
 pub const BELLOW_TAG: &str = "Nasccped - 2024";
-pub const BANNER_ESCAPE: &str = "\x1b[1;37m";
-pub const TAG_ESCAPE: &str = "\x1b[1;31m";
+pub const BANNER_ESCAPE: &str = "\x1b[1;33m";
+pub const TAG_ESCAPE: &str = "\x1b[1;36m";
 
 // function that print banner + tag and it's values
 pub fn print_merged(
