@@ -60,7 +60,7 @@ There is some requirements:
 
 3. Run the project:
 
-   ```shelll
+   ```shell
    cargo run
 
    # the command above will compile and run the entire project to
