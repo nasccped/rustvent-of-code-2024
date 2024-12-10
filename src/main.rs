@@ -1,3 +1,10 @@
+mod visuals;
+
 fn main() {
-    println!("Hello, world!");
+    visuals::clear_terminal();
+    visuals::print_banner();
+
+    println!();
+    println!("Welcome to our Advent Puzzles!!!");
+    println!();
 }
