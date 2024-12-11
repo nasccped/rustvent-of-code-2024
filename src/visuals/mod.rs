@@ -52,16 +52,16 @@ pub fn get_escape(font_style: i32, foreground: i32, background: i32) -> String {
     result
 }
 
-pub fn print_banner() {
+pub fn print_banner(banner_colors: (String, String)) {
     // local values that we'll use
-    use banners::{print_merged, BANNER_ESCAPE, BELLOW_TAG, RUSTVENT_OF_CODE_TITLE, TAG_ESCAPE};
+    use banners::{print_merged, BELLOW_TAG, RUSTVENT_OF_CODE_TITLE};
 
     // calling print function passing these values
     print_merged(
-        &RUSTVENT_OF_CODE_TITLE,     // title banner
-        BELLOW_TAG,                  // bellow tag
-        (BANNER_ESCAPE, TAG_ESCAPE), // escapes
-        (2, 1),                      // banner gaps
-        (60, 0),                     // tag gaps
+        &RUSTVENT_OF_CODE_TITLE,            // title banner
+        BELLOW_TAG,                         // bellow tag
+        (banner_colors.0, banner_colors.1), // escapes
+        (2, 1),                             // banner gaps
+        (60, 0),                            // tag gaps
     );
 }

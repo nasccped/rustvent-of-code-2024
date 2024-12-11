@@ -7,14 +7,13 @@ pub const RUSTVENT_OF_CODE_TITLE: [&str; 5] = [
     r#"|_| \_\\__,_|___/\__| \_/ \___|_| |_|\__|  \___/|_|    \____\___/ \__,_|\___|"#,
 ];
 pub const BELLOW_TAG: &str = "Nasccped - 2024";
-pub const BANNER_ESCAPE: &str = "\x1b[1;33m";
-pub const TAG_ESCAPE: &str = "\x1b[1;36m";
+pub const LEFT_GAP: i32 = 2;
 
 // function that print banner + tag and it's values
 pub fn print_merged(
     banner: &[&str],
     str2: &str,
-    each_escape: (&str, &str),
+    each_escape: (String, String),
     gaps_banner: (i32, i32),
     gaps_str2: (i32, i32),
 ) {
