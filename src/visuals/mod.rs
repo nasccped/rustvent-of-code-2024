@@ -54,14 +54,28 @@ pub fn get_escape(font_style: i32, foreground: i32, background: i32) -> String {
 
 pub fn print_banner(banner_colors: (String, String)) {
     // local values that we'll use
-    use banners::{print_merged, BELLOW_TAG, RUSTVENT_OF_CODE_TITLE};
+    use banners::{print_merged, BELLOW_TAG, LEFT_GAP, RUSTVENT_OF_CODE_TITLE};
 
     // calling print function passing these values
     print_merged(
         &RUSTVENT_OF_CODE_TITLE,            // title banner
         BELLOW_TAG,                         // bellow tag
         (banner_colors.0, banner_colors.1), // escapes
-        (2, 1),                             // banner gaps
+        (LEFT_GAP, 1),                      // banner gaps
         (60, 0),                            // tag gaps
     );
+}
+
+pub fn vprintln(content: &str) {
+    use banners::LEFT_GAP;
+
+    let contents: Vec<String> = content.split("\n").fold(Vec::<String>::new(), |mut a, b| {
+        a.push(b.to_string());
+        a
+    });
+
+    for line in contents {
+        print!("{}", " ".repeat(LEFT_GAP as usize));
+        println!("{}", line);
+    }
 }
