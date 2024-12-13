@@ -8,6 +8,7 @@ pub const RUSTVENT_OF_CODE_TITLE: [&str; 5] = [
 ];
 pub const BELLOW_TAG: &str = "Nasccped - 2024";
 pub const LEFT_GAP: i32 = 2;
+pub const ROW_MAX_WIDTH: i32 = 100;
 
 // function that print banner + tag and it's values
 pub fn print_merged(

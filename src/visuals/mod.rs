@@ -1,5 +1,6 @@
 // declare files in this module (folder)
 mod banners;
+use crate::puzzles::{AdventDay, Solve};
 
 pub fn clear_terminal() {
     // importing Command
@@ -66,16 +67,142 @@ pub fn print_banner(banner_colors: (String, String)) {
     );
 }
 
-pub fn vprintln(content: &str) {
-    use banners::LEFT_GAP;
-
+pub fn solve_print(content: &str) {
     let contents: Vec<String> = content.split("\n").fold(Vec::<String>::new(), |mut a, b| {
         a.push(b.to_string());
         a
     });
 
     for line in contents {
-        print!("{}", " ".repeat(LEFT_GAP as usize));
+        print!("  {}>{}  ", get_escape(1, 32, 0), get_escape(0, 0, 0));
         println!("{}", line);
     }
+}
+
+pub fn print_advent_table(advents: &[AdventDay]) {
+    println!("  +---------+-------------------------+----------------------------+");
+    println!("  |         |        Problems         |                            |");
+    println!("  |  Days   +------------+------------+            Path            |");
+    println!("  |         |   part 1   |   part 2   |                            |");
+    println!("  +---------+------------+------------+----------------------------+");
+
+    for day in advents {
+        let d_number: u8 = day.get_day_number();
+        let solves: (bool, bool) = day.solves_as_bool();
+        print!(
+            "  | Day {}  | ",
+            match d_number {
+                x if x < 10 => format!(" {}", x),
+                _ => d_number.to_string(),
+            }
+        );
+        print!(
+            "{} | {}",
+            if solves.0 {
+                format!("{} SOLVED \x1b[0m  ", get_escape(1, 37, 42))
+            } else {
+                format!("{} UNSOLVED \x1b[0m", get_escape(1, 37, 41))
+            },
+            if solves.1 {
+                format!("{} SOLVED \x1b[0m  ", get_escape(1, 37, 42))
+            } else {
+                format!("{} UNSOLVED \x1b[0m", get_escape(1, 37, 41))
+            }
+        );
+        print!(" | ");
+        print!(
+            "{}src/puzzles/day{}{}",
+            get_escape(0, 33, 0),
+            match d_number {
+                x if x < 10 => format!("0{}", x),
+                day => day.to_string(),
+            },
+            get_escape(0, 0, 0)
+        );
+        println!("          |");
+    }
+    println!("  +---------+-------------------------+----------------------------+");
+}
+
+pub fn print_about() {
+    println!("  About being printed");
+}
+
+pub fn print_solve_content(solve: Option<&Solve>) {
+    use banners::ROW_MAX_WIDTH;
+
+    let (title, content, _) = solve.unwrap().get_challenge_values();
+
+    println!("\n");
+    println!(
+        "  {}",
+        title
+            .unwrap()
+            .replace(" D", &{
+                let mut d = get_escape(1, 31, 0);
+                d.push('D');
+                d
+            })
+            .replace(": ", &{
+                let mut c = String::from(": ");
+                c.push_str(&get_escape(0, 0, 0));
+                c
+            })
+    );
+
+    println!();
+
+    let mut content_by_row: Vec<String> = Vec::new();
+    let mut current_row: Vec<String> = Vec::new();
+
+    for row in content.unwrap().split("\n") {
+        for word in row.split(" ") {
+            current_row.push(word.to_string());
+
+            if current_row.iter().fold(0, |mut a, b| {
+                a += b.len();
+                a
+            }) > ROW_MAX_WIDTH as usize
+            {
+                content_by_row.push(current_row.clone().join(" "));
+                current_row.clear();
+            }
+        }
+        content_by_row.push(current_row.clone().join(" "));
+        current_row.clear();
+    }
+
+    for line in content_by_row {
+        println!("  {}", line);
+    }
+}
+
+pub fn hide_marker() {
+    use std::io::{self, Write};
+
+    print!("\x1b[?25l");
+    io::stdout().flush().unwrap();
+}
+
+pub fn show_marker() {
+    use std::io::{self, Write};
+
+    print!("\x1b[?25h");
+    io::stdout().flush().unwrap();
+}
+
+pub fn print_animated(content: &str) {
+    use std::io::{self, Write};
+    use std::thread;
+    use std::time::Duration;
+
+    io::stdout().flush().unwrap();
+
+    for c in content.chars() {
+        print!("{}", c);
+        io::stdout().flush().unwrap();
+        thread::sleep(Duration::from_millis(10));
+    }
+
+    println!();
 }
