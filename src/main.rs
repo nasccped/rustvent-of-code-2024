@@ -59,7 +59,7 @@ fn personal_input() -> String {
                 result.push(c);
             }
             Key::Backspace => {
-                if result.len() > 0 {
+                if !result.is_empty() {
                     print!("\x08 \x08");
                 }
                 let _ = result.pop();
