@@ -214,7 +214,7 @@ fn main() {
                         println!("\n  ---\n");
                         println!("  You can scroll the terminal to see the entire text!\n\n");
 
-                        let solve_options = [(" R ", "to run solve"), (" Anything ", "to go back")];
+                        let solve_options = [(" R ", "to run solve"), (" ESC ", "to go back")];
 
                         let printable_options = solve_options
                             .iter()
@@ -232,37 +232,57 @@ fn main() {
 
                         println!("  {}", printable_options);
 
-                        match menu_input.getch() {
-                            Ok(Key::Char(c)) if c == 'r' || c == 'R' => {
-                                vs::clear_terminal();
-                                let (title, _, input) = found_solve.unwrap().get_challenge_values();
-                                println!("\n");
-                                println!(
-                                    "   {}{}{}",
-                                    vs::get_escape(0, 32, 0),
-                                    {
-                                        let mut holder: Vec<String> = title
-                                            .unwrap()
-                                            .split(":")
-                                            .map(|x| x.to_string())
-                                            .collect();
+                        loop {
+                            match menu_input.getch() {
+                                Ok(Key::Char(c)) if c == 'r' || c == 'R' => {
+                                    vs::clear_terminal();
+                                    let (title, _, input) =
+                                        found_solve.unwrap().get_challenge_values();
+                                    println!("\n");
+                                    println!(
+                                        "   {}{}{}",
+                                        vs::get_escape(0, 32, 0),
+                                        {
+                                            let mut holder: Vec<String> = title
+                                                .unwrap()
+                                                .split(":")
+                                                .map(|x| x.to_string())
+                                                .collect();
 
-                                        holder[0].push_str(&vs::get_escape(0, 0, 0));
-                                        holder[0] =
-                                            format!("{}{}", vs::get_escape(0, 32, 0), holder[0]);
+                                            holder[0].push_str(&vs::get_escape(0, 0, 0));
+                                            holder[0] = format!(
+                                                "{}{}",
+                                                vs::get_escape(0, 32, 0),
+                                                holder[0]
+                                            );
 
-                                        holder.join("")
-                                    },
-                                    vs::get_escape(0, 0, 0)
-                                );
-                                println!();
-                                found_solve.unwrap().run_solve(input.unwrap());
+                                            holder.join("")
+                                        },
+                                        vs::get_escape(0, 0, 0)
+                                    );
+                                    println!();
+                                    found_solve.unwrap().run_solve(input.unwrap());
 
-                                println!();
-                                println!("  Press any key to continue.");
-                                let _ = menu_input.getch();
+                                    println!();
+                                    println!(
+                                        "  Press {} ESC {} to continue",
+                                        vs::get_escape(1, 37, 41),
+                                        vs::get_escape(0, 0, 0)
+                                    );
+
+                                    loop {
+                                        match menu_input.getch() {
+                                            Ok(Key::Esc) => break,
+                                            _ => (),
+                                        }
+                                    }
+                                    break;
+                                }
+                                Ok(Key::Esc) => {
+                                    break;
+                                }
+                                _ => (),
                             }
-                            _ => {}
                         }
                     }
                 }
