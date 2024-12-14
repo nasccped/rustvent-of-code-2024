@@ -4,7 +4,6 @@ use puzzles::Solve;
 mod visuals;
 use getch_rs::{Getch, Key};
 use std::collections::HashMap;
-use std::io::Write;
 use visuals as vs;
 
 // enum of possible menu inputs (kinda useless > I'm using literal comparations a lot)
