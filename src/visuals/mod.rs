@@ -74,7 +74,7 @@ pub fn print_banner(banner_colors: (String, String)) {
 }
 
 // special printer to be used within solves function
-pub fn solve_print(content: &str) {
+pub fn solve_print(content: &str, new_line: bool) {
     // split content if new lines
     let contents: Vec<String> = content.split("\n").fold(Vec::<String>::new(), |mut a, b| {
         a.push(b.to_string());
@@ -85,7 +85,7 @@ pub fn solve_print(content: &str) {
     for line in contents {
         // print arrow + line
         print!("  {}>{}  ", get_escape(1, 32, 0), get_escape(0, 0, 0));
-        println!("{}", line);
+        print!("{}{}", line, if new_line { "\n" } else { "" });
     }
 }
 
