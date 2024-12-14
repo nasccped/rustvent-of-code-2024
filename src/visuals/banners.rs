@@ -7,7 +7,6 @@ pub const RUSTVENT_OF_CODE_TITLE: [&str; 5] = [
     r#"|_| \_\\__,_|___/\__| \_/ \___|_| |_|\__|  \___/|_|    \____\___/ \__,_|\___|"#,
 ];
 pub const BELLOW_TAG: &str = "Nasccped - 2024";
-pub const LEFT_GAP: i32 = 2;
 pub const ROW_MAX_WIDTH: i32 = 100;
 
 // function that print banner + tag and it's values
