@@ -66,17 +66,6 @@ impl XYCoordinates {
     pub fn get_xy(&self) -> (u32, u32) {
         (self.pos_x, self.pos_y)
     }
-
-    pub fn set_xy(&mut self, xy: (u32, u32)) {
-        match (xy, self.max_x, self.max_y) {
-            ((a, _), b, _) if a > b => panic!("Invalid X number (set: {a}, max: {b})"),
-            ((_, a), _, b) if a > b => panic!("Invalid Y number (set: {a}, max: {b})"),
-            (pair, ..) => {
-                self.pos_x = pair.0;
-                self.pos_y = pair.1
-            }
-        }
-    }
 }
 
 impl std::fmt::Display for XYCoordinates {
