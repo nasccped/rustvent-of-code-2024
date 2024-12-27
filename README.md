@@ -17,8 +17,8 @@ Welcome to **Rustvent of Code 2024**, my personal
 
 <tr>
    <td><img src="./images/main-menu.png"></td>
-   <td><img src="./images/end-screen.png"></td>
    <td><img src="./images/day2-p2.png"></td>
+   <td><img src="./images/end-screen.png"></td>
 </tr>
 </table>
 
