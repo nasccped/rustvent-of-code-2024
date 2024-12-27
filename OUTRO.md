@@ -64,7 +64,7 @@ terminal (that supports these features) is recommended. I used
 [Alacritty][alacritty-link] during development and it served
 perfectly well.
 
-### You terminal 2
+### Your terminal 2
 
 There are some problems for print and clean the terminal. Everything
 works, as long as the terminal is not resized. So, the bigger the
