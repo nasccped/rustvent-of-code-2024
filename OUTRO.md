@@ -13,7 +13,13 @@ to go back to main page, or...
     - [When and why did I start?](#when-and-why-did-i-start)
     - [My opinion on the language](#my-opinion-on-the-language)
 
+  - [Tips](#tips)
+    - [Your terminal 1](#your-terminal-1)
+    - [Your terminal 2](#your-terminal-2)
+
 </details>
+
+
 
 ## This repo and my experience
 
@@ -48,6 +54,26 @@ everything works fine.
 
 
 
+## Tips
+
+### Your terminal 1
+
+The program consists of a bunch of **formatted** and **colored**
+text, which is **printed** and then **deleted**. Having a modern
+terminal (that supports these features) is recommended. I used
+[Alacritty][alacritty-link] during development and it served
+perfectly well.
+
+### You terminal 2
+
+There are some problems for print and clean the terminal. Everything
+works, as long as the terminal is not resized. So, the bigger the
+terminal, the better it will run. _(full screen is highly
+recommended)_
+
+
+
 [repo-link]: https://github.com/nasccped/rustvent-of-code-2024
 [contributing-link]: ./CONTRIBUTING.md
 [lucas-montano]: https://www.youtube.com/@LucasMontano
+[alacritty-link]: https://alacritty.org/
