@@ -5,6 +5,23 @@ Welcome to **Rustvent of Code 2024**, my personal
 [Advent of Code][advent-of-code-link] solutions made entirely in
 [Rust][rustlang-link] 🦀 language!
 
+<table>
+<tr>
+   <th colspan="3">Demo</th>
+<tr>
+<tr>
+   <td>Main Menu</td>
+   <td>Day 2 Scenario</td>
+   <td>Endscreen</td>
+</tr>
+
+<tr>
+   <td><img src="./images/main-menu.png"></td>
+   <td><img src="./images/end-screen.png"></td>
+   <td><img src="./images/day2-p2.png"></td>
+</tr>
+</table>
+
 
 ## What's AoC?
 
