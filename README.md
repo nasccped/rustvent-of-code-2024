@@ -64,13 +64,11 @@ Did you want to run this program? Here are some requirements:
    ```
 
 
-> [!NOTE]
->
-> I'm still learning the Rust language, so... some files can be
-> useless, bad structured, bad commented, with some bugs and a lot
-> more.
->
-> Sorry for this, but I promise to improve in these mistakes.
+## Did you want to check more info
+
+Take a look at [OUTRO][outro-link] to get info, or
+[CONTRIBUTING][contributing-link] to see how to contribute!
+
 
 
 <!-- links -->
@@ -82,3 +80,5 @@ Did you want to run this program? Here are some requirements:
 [rustrover-link]: https://www.jetbrains.com/rust/
 [vs-code-link]: https://code.visualstudio.com/
 [neovim-link]: https://neovim.io/
+[outro-link]: ./OUTRO.md
+[contributing-link]: ./CONTRIBUTING.md
