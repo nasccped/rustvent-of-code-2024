@@ -43,7 +43,7 @@ Did you want to run this program? Here are some requirements:
   [JetBrains RustRover][rustrover-link], [Neovim][neovim-link]) is
   optional _(but recomended)_
 
-### Step by Step
+### Step by step
 
 1. Firstly, clone the repository:
 
