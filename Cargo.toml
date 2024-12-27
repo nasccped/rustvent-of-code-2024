@@ -1,8 +1,0 @@
-[package]
-name = "rustvent-of-code-2024"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-getch-rs = "0.2.0"
-termion = "4.0.3"
