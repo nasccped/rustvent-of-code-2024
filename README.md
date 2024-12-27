@@ -35,15 +35,13 @@ page by clicking [here][aoc-about-link].
 
 ## Get, build and run
 
-Did you want to try this program? Fine!
-
-There is some requirements:
+Did you want to run this program? Here are some requirements:
 - [Git][git-link]
 - [Rust Compiler][rustlang-link]
 - [Cargo Package Manager][cargo-link]
 - IDE (e.g., [VS Code][vs-code-link],
   [JetBrains RustRover][rustrover-link], [Neovim][neovim-link]) is
-  optional _(But recomended)_
+  optional _(but recomended)_
 
 ### Step by Step
 
@@ -51,37 +49,18 @@ There is some requirements:
 
    ```shell
    git clone https://github.com/nasccped/rustvent-of-code-2024
-
-   # this will clone the repo to your current working directory
-   # make sure that the current directory doesn't have another folder
-   # called rustvent-of-code-2024. This can cause an error
-
-   git clone https://github.com/nasccped/rustvent-of-code-2024 name_of_your_choice
-
-   # use the command above to clone the directory with an alias.
-   # don't forget to replace 'name_of_your_choice'
    ```
 
 2. Goto cloned repo:
 
    ```shell
    cd ./rustvent-of-code-2024
-   
-   # it will change your current working directory to the cloned repo,
-   # or you can also use the following:
-
-   cd ./name_of_your_choice
-
-   # if an alias has been used
    ```
 
 3. Run the project:
 
    ```shell
    cargo run
-
-   # the command above will compile and run the entire project to
-   # you! Don't worry about manual compile :^)
    ```
 
 
