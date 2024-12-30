@@ -63,6 +63,15 @@ Did you want to run this program? Here are some requirements:
    cargo run
    ```
 
+> [!TIP]
+>
+> How can i know if the result is right?
+>
+> Just run `cargo test` instead!
+>
+> This will output all program's test cases (based on the given AoC
+> example)
+
 
 ## Did you want to check more info
 
