@@ -2,12 +2,12 @@ use crate::navigation::XYCoordinates;
 use crate::solves::Solve;
 
 pub fn hide_cursor() {
-    use termion::cursor;
+    use crossterm::cursor;
     print!("{}", cursor::Hide);
 }
 
 pub fn show_cursor() {
-    use termion::cursor;
+    use crossterm::cursor;
     print!("{}", cursor::Show);
 }
 
@@ -120,10 +120,16 @@ pub fn print_advent_table(cur_coord: &XYCoordinates, advents: &[(Option<Solve>, 
 }
 
 pub fn clear_lines(n: u16) {
+    use crossterm::terminal::{self, ClearType};
+    use crossterm::{cursor, execute};
     use std::io::{self, Write};
-    use termion::{clear, cursor};
 
     io::stdout().flush().unwrap();
-    print!("{}{}", cursor::Up(n), clear::AfterCursor);
+    execute!(
+        io::stdout(),
+        cursor::MoveUp(n),
+        terminal::Clear(ClearType::FromCursorDown),
+    )
+    .unwrap();
     io::stdout().flush().unwrap();
 }
