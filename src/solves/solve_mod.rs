@@ -100,6 +100,7 @@ pub fn get_all_solves() -> Vec<(Option<Solve>, Option<Solve>)> {
     use crate::puzzles::day02;
 
     use crate::puzzles::day04;
+    use crate::puzzles::day05;
 
     type Function = Option<fn(Vec<String>) -> i32>;
     let fn_vec: Vec<(Function, Function)> = vec![
@@ -107,6 +108,7 @@ pub fn get_all_solves() -> Vec<(Option<Solve>, Option<Solve>)> {
         (Some(day02::solve1), Some(day02::solve2)),
         (None, None),
         (Some(day04::solve1), Some(day04::solve2)),
+        (Some(day05::solve1), Some(day05::solve2)),
     ];
 
     let mut solves_vector: Vec<(Option<Solve>, Option<Solve>)> = Vec::new();
