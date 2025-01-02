@@ -102,7 +102,7 @@ pub fn get_all_solves() -> Vec<(Option<Solve>, Option<Solve>)> {
     let fn_vec: Vec<(Function, Function)> = vec![
         (Some(day01::solve1), Some(day01::solve2)),
         (Some(day02::solve1), Some(day02::solve2)),
-        (Some(day03::solve1), Some(day03::solve2)),
+        (Some(day03::solve1), None),
     ];
 
     let mut solves_vector: Vec<(Option<Solve>, Option<Solve>)> = Vec::new();
